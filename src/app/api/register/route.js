@@ -12,5 +12,10 @@ export async function POST(req) {
         status: 400,
       });
     }
+
+    //Hashed Password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    //new user
   } catch (error) {}
 }
