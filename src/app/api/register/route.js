@@ -17,5 +17,12 @@ export async function POST(req) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     //new user
+    const newUser = { name, email, password: hashedPassword };
+    users.push(newUser);
+
+    return new Response(
+      JSON.stringify({ message: "User Registered Successfully" }),
+      { status: 201 }
+    );
   } catch (error) {}
 }
